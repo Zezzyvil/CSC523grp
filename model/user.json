@@ -1,0 +1,16 @@
+{ "users": [
+	{"phone":"08069537136","tariff":"bounce","balance":300.0},
+	{"phone":"08115556665","tariff":"infinito","balance":20.0},
+	{"phone":"08115556666","tariff":"bumpa","balance":0.11},
+	{"phone":"08115556667","tariff":"bounce","balance":1000.0},
+        {"phone":"9","tariff":"bounce","balance":10.0}
+    ],
+
+
+ "tariff":{"bounce":"15","infinito":"11","bumper":"50","gbam":"11"}
+
+}
+
+
+
+

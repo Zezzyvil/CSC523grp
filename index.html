@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Call rate</title>
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/top.css" rel="stylesheet">
+
+
+    <script src="vendor/js/jquery.2.1.0.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Call Rate</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="userNumber">0811555666x</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#rechargeModal">Recharge &raquo;</a></p>
+
+
+
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row innerContainer">
+        <div class="col-sm-4"><a data-toggle="modal" href="#keypardModal">
+          <img src="images/call.png" height="150" width="150">
+          <h4>Make that call</h4></a>
+        </div>
+        <div class="col-sm-4"><a data-toggle="modal" href="#msgModal">
+        <img src="images/sms.png" height="150" width="150">
+          <h4>Send Message</h4></a>
+       </div>
+        <div class="col-sm-4"><a data-toggle="modal" href="#">
+        <img src="images/browse.svg" height="150" width="150">
+          <h4>Browse the web</h4></a>
+        </div>
+      </div>
+
+      <hr>
+
+    </div> <!-- /container -->
+    <footer class="footer">
+      <div class="container">
+          <ul id="footerNav" >
+            <li><a data-toggle="modal" href="#profileModal">Profile</a></li>
+            <li><a data-toggle="modal" href="#keypardModal">Make call</a></li>
+            <li><a data-toggle="modal" href="#msgModal">Send sms</a></li>
+            <li><a data-toggle="modal" href="#tariffModal">Change tariff</a></li>
+            <li><a data-toggle="modal" href="#rechargeModal">Recharge</a></li>
+          </ul>
+         <div id="copyright">
+           <p>&copy; CSC Assignment 2016</p>
+         </div>
+         <div id="balance">
+           NGN <p class="balance userBalance"> </p>
+         </div>
+      </div>
+    </footer>
+
+
+    <!-- phone modal -->
+    <div class="modal fade" id="numberModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="numberModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title pNumberT" id="unmberModalLabel ">Enter your glo number</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form class="form-horizontal">
+              <div class="well well-lg">
+                <div class="form-group">
+                  <label for="numberInput" class="col-sm-2 control-label pNumber">Phone</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-contro pNumber" id="numberInput" placeholder="phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 8'>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="numberBtn" class="btn btn-lg btn-primary">Sign in</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div> <!-- end phone modal -->
+
+
+    <!-- recharge modal -->
+    <div class="modal fade" id="rechargeModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="numberModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title pNumberT" id="rechargeModalLabel ">Line Recharge</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form class="form-horizontal">
+              <div class="well well-lg">
+                  <div class="form-group">
+                    <label for="rechargeSerial" class="col-sm-2 control-label pNumber">serial</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-contro pNumber" id="rechargeSerial" placeholder="card serial" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 8'>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="button" id="rechargeBtn" class="btn btn-lg btn-primary">send</button>
+                    </div>
+                  </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div> <!-- end recharge modal -->
+
+
+    <!-- message modal -->
+    <div class="modal fade" id="msgModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="msgModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title pNumberT" id="msgModalLabel ">SMS</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form class="form-horizontal">
+              <div class="well well-lg">
+              <h3><span class ="glyphicon glyphicon-envelope"> <p id="smsLength"> </p></span></h3>
+              <p><b> Phone </b>
+              	<input type="text"class="form-control" id="smsSendAddr" placeholder="Phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 8' /> </p>
+              <p><b> Message </b>
+                <textarea id="smsContent" class = "form-control" rows = "4" placeholder = "Type a message here..."></textarea></p>
+              <p><button type="button" id ="smsBtn" class = "btn btn-primary">Send</button></p>
+                 </div>
+
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div> <!-- end message modal -->
+
+
+
+    <!-- profile modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title pNumberT" id="profileModalLabel">Profile</h4>
+          </div>
+          <div class="modal-body well well-lg profile">
+           <p> Number : <span class="userNumber"></span></p>
+           <p> Tariff : <span class="userTariff"></span> </p>
+           <p> Balance : <span class="userBalance"></span></p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end profile modal -->
+
+    <!-- notification modal -->
+    <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title " id="noticeModalLabel">notification</h4>
+          </div>
+          <div class="modal-body well well-lg profile">
+           <p> <span class="notification"></span></p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end notification modal -->
+
+    <!-- changetariff modal -->
+    <div class="modal fade" id="tariffModal" tabindex="-1" role="dialog" aria-labelledby="tariffModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content pNumberT">
+
+          <div class="modal-header">
+            <h4 class="modal-title " id="tariffModalLabel">change tariff</h4>
+          </div>
+          <div class="modal-body well well-lg  ">
+
+            <form class="form-horizontal">
+              <div class=" changeTariff">
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div> <!-- end changetariff modal -->
+
+    <!-- activeCall modal -->
+    <div class="modal fade" id="activeCallModal" tabindex="1" data-backdrop="static" aria-hidden="true">
+      <div class="vertical-alignmet-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-content">
+          <div class="modal-body well well-lg" id="activecall">
+          <div>
+            <span id="duration"></span> &nbsp; &nbsp; &nbsp; <img src="images/endc.png"></img>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div> <!-- end notification modal -->
+
+      <!-- keypard modal -->
+      <div class="modal fade" id="keypardModal" tabindex="-1" role="dialog" aria-labelledby="keypardModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title pNumberT" id="keypardModalLabel">Enter number</h4>
+            </div>
+            <div class="modal-body well well-lg">
+              <div id="wrapper">
+                  <div class="dialpad compact">
+                      <div class="well number"></div>
+                      <div class="dials">
+                          <ol>
+                              <li class="digits"><p><strong>1</strong></p></li>
+                              <li class="digits"><p><strong>2</strong><sup>abc</sup></p></li>
+                              <li class="digits"><p><strong>3</strong><sup>def</sup></p></li>
+                              <li class="digits"><p><strong>4</strong><sup>ghi</sup></p></li>
+                              <li class="digits"><p><strong>5</strong><sup>jkl</sup></p></li>
+                              <li class="digits"><p><strong>6</strong><sup>mno</sup></p></li>
+                              <li class="digits"><p><strong>7</strong><sup>pqrs</sup></p></li>
+                              <li class="digits"><p><strong>8</strong><sup>tuv</sup></p></li>
+                              <li class="digits"><p><strong>9</strong><sup>wxyz</sup></p></li>
+                              <li class="digits"><p><strong>*</strong></p></li>
+                              <li class="digits"><p><strong>0</strong><sup>+</sup></p></li>
+                              <li class="digits"><p><strong>#</strong></p></li>
+                              <li class="digits"><p><strong><i class="fa fa-refresh"></i></strong><sup>Clear</sup></p></li>
+                              <li class="digits"><p><strong><i class="fa fa-times"></i></strong><sup>Delete</sup></p></li>
+                              <li class="digits pad-action"><a id="makeCall" href="#" ><p><strong><i class="fa fa-phone"></i></strong> <sup>Call</sup></p></a></li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- end keypard modal -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      function load_modal(){
+        $("#numberModal").modal('show');
+      }
+    </script>
+  </body>
+</html>
