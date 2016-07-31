@@ -6,12 +6,24 @@ var $j = jQuery.noConflict();
 $j(function(){
 
   var smsLength = 0;
+  var user = "";
+  //
+  // var xhttp = new XMLHttpRequest();
+	// xhttp.open("GET","model/user.json",false);
+	//  xhttp.send();
+	 var model =  { "users": [
+   	{"phone":"08069537135","tariff":"bounce","balance":300.0},
+   	{"phone":"08115556660","tariff":"infinito","balance":20.0},
+   	{"phone":"08115556666","tariff":"bumpa","balance":0.11},
+   	{"phone":"08115556667","tariff":"bounce","balance":1000.0},
+    {"phone":"9","tariff":"bounce","balance":10.0}
+       ],
 
-  var xhttp = new XMLHttpRequest();
-	xhttp.open("GET","model/user.json",false);
-	 xhttp.send();
-	 var model = JSON.parse(xhttp.response);
-   var user = "";
+
+    "tariff":{"bounce":15,"infinito":11,"bumper":50,"gbam":11}
+
+   }
+
 
 	 console.log(model);
 	 console.log(model.tariff.bounce);
@@ -21,7 +33,7 @@ $j(function(){
 	$j("#numberBtn").click(function(){
      var userNumber = $j("#numberInput").val();
        for( u in model.users){
-         if(parseFloat(model.users[u].phone) == parseFloat(userNumber)){
+         if(model.users[u].phone == userNumber){
              user = model.users[u];
              updateUserStuffs();
             //  setTariffs();
@@ -33,8 +45,8 @@ $j(function(){
 
 	$j("#rechargeBtn").click(function(){
     console.log("recharging...");
-    if(parseFloat($j("#rechargeSerial").val()) > 10000 ){
-      user.balance += [100,200,400,500,1000][Math.floor( (Math.random()*10)%5 )];
+    if($j("#rechargeSerial").val() > 10000 ){
+      user.balance = parseFloat(user.balance)+[100,200,400,500,1000][Math.floor( (Math.random()*10)%5 )];
       console.log("recharging..."+user.balance);
       updateUserStuffs();
       var notice = "your recharge was successful &nbs; new acc balance is <br/> main : NGN "+user.balance;
@@ -105,7 +117,7 @@ var callTimerVar = 0;
 //activate call functions
 $j("#makeCall").click(function(){
   $j("#keypardModal").modal('hide');
-  parseFloat(user.balance*100) < parseFloat(model.tariff[user.tariff])? setNotification("Insufficient Fund") : function(){
+  user.balance*100 < model.tariff[user.tariff]? setNotification("Insufficient Fund") : function(){
                 $j("#activeCallModal").modal('show');
                 callTimerVar = setInterval(callTimer,1000);
               }();
@@ -120,12 +132,12 @@ $j("#activecall").click(function(){
 //call timind
   function callTimer(){
     console.log("starting call....");
-    parseFloat(user.balance*100) < parseFloat(model.tariff[user.tariff]) ? endCall() : function(){
+    user.balance*100 < model.tariff[user.tariff] ? endCall() : function(){
       console.log("call ongoing...");
       callTime();
       duration+=1;
       console.log(user.balance);
-      user.balance = (user.balance - parseFloat(model.tariff[user.tariff])/100).toFixed(2); //billing
+      user.balance = (user.balance -model.tariff[user.tariff]/100).toFixed(2); //billing
       console.log(user.balance);
       updateUserStuffs();
     }();
