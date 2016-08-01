@@ -7,10 +7,7 @@ $j(function(){
 
   var smsLength = 0;
   var user = "";
-  //
-  // var xhttp = new XMLHttpRequest();
-	// xhttp.open("GET","model/user.json",false);
-	//  xhttp.send();
+
 	 var model =  { "users": [
    	{"phone":"08069537135","tariff":"bounce","balance":300.0},
    	{"phone":"08115556660","tariff":"infinito","balance":20.0},
@@ -24,16 +21,15 @@ $j(function(){
 
    }
 
-
 	 console.log(model);
 	 console.log(model.tariff.bounce);
 
 	$j("#numberModal").modal("show");
 
 	$j("#numberBtn").click(function(){
-     var userNumber = $j("#numberInput").val();
+     var userNumber = 'Phone Number: ' + $j("#numberInput").val();
        for( u in model.users){
-         if(model.users[u].phone == userNumber){
+         if(model.users[u].phone == userNumber.split(' ')[2]){
              user = model.users[u];
              updateUserStuffs();
             //  setTariffs();
@@ -78,8 +74,8 @@ $j(function(){
 
   //
   function updateUserStuffs(){
-    $j(".userNumber").html(user.phone);
-    $j(".userBalance").html(user.balance);
+    $j(".userNumber").html('Phone Number: ' + user.phone);
+    $j(".userBalance").html('NGN ' + user.balance);
     var trf = user.tariff +" @ "+ model.tariff[user.tariff]+"k/s";
     $j(".userTariff").html(trf);
   }

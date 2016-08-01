@@ -63,15 +63,17 @@ background : #cccccc;
 
 .jumbotron {
 /*background:url(E:/new/images/3589.jpg) no-repeat 50% 0 ;*/
-height : 350px;
+height : 40%;
 padding : 15px 0px ;
 }
 .jumbotron h1 {
-color : #FFFAFA;
-border-bottom : #ffffff solid 1px ;
-padding-bottom : 10px;
-padding-top : 3px;
+color : #000000;
+font-size: 48px;
+/*border-bottom : #ffffff solid 1px ;
+*/margin-bottom : 30px;
+  padding-top : 15px;
 }
+
 .jumbotron p {
 color : #FFFAFA ;
 }
@@ -189,15 +191,18 @@ background : #f4f4f4 !important;
 
 .footer {
 position : relative;
-height : 200px;
+height : 100%;
 width : 100%;
 left : 0px;
 right : 0px;
-bottom : 0px;
+bottom : 0;
 text-align : center;
-padding-top : 20px;
-padding-bottom: 20px;
-
+padding-top : 50px;
+color: #000;
 font-weight : bold;
-background : #f4f4f4;
+}
+
+.footer p{
+  color: #000;
+  font-weight: 500;
 }
